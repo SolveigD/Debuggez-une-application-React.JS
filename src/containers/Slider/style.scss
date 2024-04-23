@@ -37,6 +37,10 @@
         height: 16px;
         min-width: 0;
         color: $primary;
+
+        &:checked{
+          color:red;
+        }
       }
     }
     &__description {
