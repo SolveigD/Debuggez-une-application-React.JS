@@ -24,7 +24,7 @@ describe("When Events is created", () => {
       await screen.findByText("En cours");
       
       await new Promise((r) => {
-        setTimeout(r, 1000)
+       setTimeout(r, 1000)
       });
 
       await screen.findByText("Envoyer");
