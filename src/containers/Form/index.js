@@ -1,8 +1,10 @@
+import { waitFor } from '@testing-library/react';
 import { useCallback, useState } from "react";
 import PropTypes from "prop-types";
 import Field, { FIELD_TYPES } from "../../components/Field";
 import Select from "../../components/Select";
 import Button, { BUTTON_TYPES } from "../../components/Button";
+
 
 const mockContactApi = () => new Promise((resolve) => { setTimeout(resolve, 1000); })
 
@@ -15,10 +17,10 @@ const Form = ({ onSuccess, onError }) => {
       // We try to call mockContactApi
       try {
         await mockContactApi();
-        setSending(false);
+        await waitFor(() => setSending(false));
         onSuccess ();
       } catch (err) {
-        setSending(false);
+        await waitFor(() => setSending(false));
         onError(err);
       }
     },
