@@ -14,9 +14,7 @@ import { useData } from "../../contexts/DataContext";
 
 const Page = () => {
   const {last} = useData()
-  if (!last) {
-    return <div>Loading...</div>; // ou un autre composant de chargement
-  }
+  
   return <>
     <header>
       <Menu />
@@ -119,12 +117,12 @@ const Page = () => {
     <footer className="row">
       <div className="col presta">
         <h3>Notre derniére prestation</h3>
-       <EventCard
-          imageSrc={last?.cover}
-          title={last?.title}
-          date={new Date(last?.date)}
-          small
-          label="boom"
+        <EventCard
+        imageSrc={last?.cover || ""}
+         title={last?.title || ""}
+        date={last ? new Date(last.date) : new Date()}
+        label="boom"
+        small
         />
       </div>
       <div className="col contact">

@@ -4,9 +4,7 @@ import Page from "./index";
 describe("When Form is created", () => {
   it("a list of fields card is displayed", async () => {
     render(<Page />);
-    await new Promise((r) => {
-       setTimeout(r, 5000)
-      });
+    
     await screen.findByText("Email");
     await screen.findByText("Nom");
     await screen.findByText("Prénom");
@@ -27,7 +25,7 @@ describe("When Form is created", () => {
     
       await screen.findByText("Message envoyé !");
     });
-  });
+     });
 
 });
 
