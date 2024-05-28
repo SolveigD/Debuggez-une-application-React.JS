@@ -118,11 +118,11 @@ const Page = () => {
       <div className="col presta">
         <h3>Notre derniére prestation</h3>
         <EventCard
-        imageSrc={last?.cover || ""}
-         title={last?.title || ""}
-        date={last ? new Date(last.date) : new Date()}
-        label="boom"
-        small
+          imageSrc={last?.cover || ""}
+          title={last?.title || ""}
+          date={last ? new Date(last.date) : new Date()}
+          label="boom"
+          small
         />
       </div>
       <div className="col contact">

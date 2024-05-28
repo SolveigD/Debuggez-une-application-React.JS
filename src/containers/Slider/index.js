@@ -29,6 +29,7 @@ const Slider = () => {
             className={`SlideCard SlideCard--${
               index === idx ? "display" : "hide"
             }`}
+            data-testid="SliderCard"
           >
             <img src={event.cover} alt="forum" />
             <div className="SlideCard__descriptionContainer">

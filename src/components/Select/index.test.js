@@ -86,3 +86,25 @@ describe("When a select is created", () => {
     });
   });
 });
+
+describe("when the list of choices is opened", () => {
+  it("there is a list of available filters", () => {
+    render(<Select selection={["choice1", "choice2"]} />);
+
+    const selectElement = screen.getByTestId("select-testid");
+
+    const collapseButtonElement = screen.getByTestId("collapse-button-testid");
+
+    fireEvent(
+      collapseButtonElement,
+      new MouseEvent("click", {
+        bubbles: true,
+        cancelable: true,
+      })
+    );
+
+    expect(selectElement).toHaveTextContent('All');
+    expect(selectElement).toHaveTextContent('choice1');
+    expect(selectElement).toHaveTextContent('choice2');
+  });
+});

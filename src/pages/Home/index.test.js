@@ -1,6 +1,7 @@
 import { fireEvent, render, screen } from "@testing-library/react";
 import Page from "./index";
 
+
 describe("When Form is created", () => {
   it("a list of fields card is displayed", async () => {
     render(<Page />);
@@ -33,15 +34,23 @@ describe("When Form is created", () => {
 
 describe("When a page is created", () => {
   it("a list of events is displayed", () => {
-    // to implement
+   render(<Page />);
+   const element = document.querySelector('.EventCard');
+   expect(element).toBeInTheDocument();
   })
   it("a list a people is displayed", () => {
-    // to implement
+   render (<Page />);
+   const element = document.querySelector('.PeopleCard');
+   expect(element).toBeInTheDocument();
   })
   it("a footer is displayed", () => {
-    // to implement
+    render (<Page />);
+    const element = document.querySelector('footer');
+    expect(element).toBeInTheDocument();
   })
-  it("an event card, with the last event, is displayed", () => {
-    // to implement
+  it("an event card, with the last event, is displayed", async () => {
+    render (<Page />);
+    await screen.findByText('boom');
   })
 });
+

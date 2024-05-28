@@ -27,3 +27,4 @@ describe("When a people card is created", () => {
     expect(titleElement).toBeInTheDocument();
   });
 });
+

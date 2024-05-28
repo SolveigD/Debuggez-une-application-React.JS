@@ -1,4 +1,4 @@
-import { render, screen } from "@testing-library/react";
+import { render, screen, waitFor } from "@testing-library/react";
 import Slider from "./index";
 import { api, DataProvider } from "../../contexts/DataContext";
 
@@ -42,3 +42,21 @@ describe("When slider is created", () => {
     );
   });
 });
+
+
+describe("when slider is loaded", () => {
+  
+  it("should display a slider with a descendant order of elements", async () => {
+    api.loadData = jest.fn().mockReturnValue(data);
+    render (
+      <DataProvider>
+        <Slider />
+      </DataProvider>
+    );
+
+    const elements = await waitFor(() => screen.findAllByTestId('SliderCard'));
+    expect(elements.length).toBeGreaterThan(1);
+    expect(elements[0]).toHaveTextContent('World Farming Day');
+    expect(elements[2]).toHaveTextContent('World Gaming Day');
+  })
+})
